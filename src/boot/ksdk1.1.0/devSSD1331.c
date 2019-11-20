@@ -64,14 +64,18 @@ writeCommand(uint8_t commandByte)
 int
 devSSD1331init(void)
 {
+	SEGGER_RTT_printf(0, "Initialising SSD1331 \n");
 	/*
 	 *	Override Warp firmware's use of these pins.
 	 *
 	 *	Re-configure SPI to be on PTA8 and PTA9 for MOSI and SCK respectively.
 	 */
+
+	
 	PORT_HAL_SetMuxMode(PORTA_BASE, 8u, kPortMuxAlt3);
 	PORT_HAL_SetMuxMode(PORTA_BASE, 9u, kPortMuxAlt3);
 
+	
 	enableSPIpins();
 
 	/*
@@ -126,13 +130,13 @@ devSSD1331init(void)
 	writeCommand(kSSD1331CommandVCOMH);		// 0xBE
 	writeCommand(0x3E);
 	writeCommand(kSSD1331CommandMASTERCURRENT);	// 0x87
-	writeCommand(0x06);
+	writeCommand(0x0E);
 	writeCommand(kSSD1331CommandCONTRASTA);		// 0x81
-	writeCommand(0x91);
+	writeCommand(0xFF);
 	writeCommand(kSSD1331CommandCONTRASTB);		// 0x82
-	writeCommand(0x50);
+	writeCommand(0xFF);
 	writeCommand(kSSD1331CommandCONTRASTC);		// 0x83
-	writeCommand(0x7D);
+	writeCommand(0xFF);
 	writeCommand(kSSD1331CommandDISPLAYON);		// Turn on oled panel
 
 	/*
@@ -156,8 +160,25 @@ devSSD1331init(void)
 	 *	Any post-initialization drawing commands go here.
 	 */
 	//...
+	
+	writeCommand(kSSD1331CommandDRAWRECT);
+	/* rectangle dimensions */
+	writeCommand(0x00);
+	writeCommand(0x00);
+	writeCommand(0x5F);
+	writeCommand(0x3F);
+	/* line color */
+	writeCommand(0x00);
+	writeCommand(0xFF);
+	writeCommand(0x00);
+	/* fill color */
+	writeCommand(0x00);
+	writeCommand(0xFF);
+	writeCommand(0x00);
 
 
+	SEGGER_RTT_WriteString(0, "Done initialising SSD1331");
+	OSA_TimeDelay(100);
 
 	return 0;
 }

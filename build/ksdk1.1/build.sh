@@ -1,6 +1,6 @@
 #!/bin/sh
 	
-	# Uncomment this to set ARMGCC_DIR correctly: export ARMGCC_DIR=<full path to arm-gcc directory>
+	export ARMGCC_DIR=/usr
 
 	mkdir -p work
 	mkdir -p work/boards/Warp
@@ -12,9 +12,11 @@
 	cp ../../src/boot/ksdk1.1.0/warp-kl03-ksdk1.1-boot.c		work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/warp-kl03-ksdk1.1-powermodes.c	work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/warp.h				work/demos/Warp/src/
+	cp ../../src/boot/ksdk1.1.0/devSSD1331.*			work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devBMX055.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devADXL362.*			work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devMMA8451Q.*			work/demos/Warp/src/
+	cp ../../src/boot/ksdk1.1.0/devINA219.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devLPS25H.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devHDC1000.*			work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devMAG3110.*			work/demos/Warp/src/
@@ -37,5 +39,11 @@
 
 	cd work/lib/ksdk_platform_lib/armgcc/KL03Z4 && ./clean.sh; ./build_release.sh
 	cd ../../../../demos/Warp/armgcc/Warp && ./clean.sh; ./build_release.sh
-	echo "\n\nNow, run\n\n\t/Applications/SEGGER/JLink/JLinkExe -device MKL03Z32XXX4 -if SWD -speed 100000 -CommanderScript ../../tools/scripts/jlink.commands\n\n"
+	
+	cd ./release
+	pwd
+	scp ./Warp.* dl564@gate.eng.cam.ac.uk:./
+
+	sha1sum ./Warp.srec
+
 

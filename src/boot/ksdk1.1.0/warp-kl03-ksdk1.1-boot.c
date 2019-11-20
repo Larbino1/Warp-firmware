@@ -55,12 +55,13 @@
 #include "SEGGER_RTT.h"
 #include "warp.h"
 
-//#define WARP_FRDMKL03
+#define WARP_FRDMKL03
 
 /*
 *	Comment out the header file to disable devices
 */
 #ifndef WARP_FRDMKL03
+#	include "devSSD1331.h"
 #	include "devBMX055.h"
 #	include "devMMA8451Q.h"
 #	include "devHDC1000.h"
@@ -69,6 +70,7 @@
 #	include "devBME680.h"
 #	include "devCCS811.h"
 #	include "devAMG8834.h"
+#	include "devINA219.h"
 //#include "devTCS34725.h"
 //#include "devSI4705.h"
 //#include "devSI7021.h"
@@ -79,7 +81,9 @@
 //#include "devAS7263.h"
 //#include "devRV8803C7.h"
 #else
+#	include "devSSD1331.h"
 #	include "devMMA8451Q.h"
+#	include "devINA219.h"
 #endif
 
 #define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -107,6 +111,7 @@ volatile WarpI2CDeviceState			deviceBMX055gyroState;
 volatile WarpI2CDeviceState			deviceBMX055magState;
 #endif
 
+volatile WarpI2CDeviceState			deviceINA219State;
 #ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
 volatile WarpI2CDeviceState			deviceMMA8451QState;
 #endif
@@ -1235,8 +1240,13 @@ main(void)
 #endif
 
 #ifdef WARP_BUILD_ENABLE_DEVMMA8451Q
-	initMMA8451Q(	0x1C	/* i2cAddress */,	&deviceMMA8451QState	);
-#endif	
+	initMMA8451Q(	0x1D /* i2cAddress */,	&deviceMMA8451QState	);
+#endif
+
+
+SEGGER_RTT_WriteString(0, "\n\rInitialising INA219 \n\r ");
+initINA219(0x40 /* i2cAddress */, &deviceINA219State	);	
+SEGGER_RTT_WriteString(0, "\n\r Done initialising INA219 \n\r ");
 
 #ifdef WARP_BUILD_ENABLE_DEVLPS25H
 	initLPS25H(	0x5C	/* i2cAddress */,	&deviceLPS25HState	);
@@ -1251,7 +1261,7 @@ main(void)
 #endif
 
 #ifdef WARP_BUILD_ENABLE_DEVSI7021
-	initSI7021(	0x40	/* i2cAddress */,	&deviceSI7021State	);
+//	initSI7021(	0x40	/* i2cAddress */,	&deviceSI7021State	);
 #endif
 
 #ifdef WARP_BUILD_ENABLE_DEVL3GD20H
@@ -1340,7 +1350,7 @@ main(void)
 #endif
 
 
-
+	devSSD1331init();
 
 	while (1)
 	{
@@ -1573,6 +1583,8 @@ main(void)
 #endif
 				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
+				SEGGER_RTT_WriteString(0, "\r\t- 'l' INA219			(0x00--0x2B): 2.7V -- 3.6V\n");
+				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 				SEGGER_RTT_WriteString(0, "\r\tEnter selection> ");
 				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
@@ -1724,6 +1736,13 @@ main(void)
 						break;
 					}
 #endif
+					case 'l':
+					{
+						menuTargetSensor = kWarpSensorINA219;
+						menuI2cDevice = &deviceINA219State;
+						break;
+					}
+					
 					default:
 					{
 #ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
@@ -2766,9 +2785,10 @@ loopForSensor(	const char *  tagString,
 					if (chatty)
 					{
 #ifdef WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-						SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x\n",
+						SEGGER_RTT_printf(0, "\r\t0x%02x --> 0x%02x\n 0x%02x\n",
 							address+j,
-							i2cDeviceState->i2cBuffer[0]);
+							i2cDeviceState->i2cBuffer[0],
+							i2cDeviceState->i2cBuffer[1]);
 #endif
 					}
 				}
@@ -2870,6 +2890,29 @@ repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t
 			break;
 		}
 
+		case kWarpSensorINA219:
+		{
+			/*
+			 *	MMA8451Q: VDD 1.95--3.6
+			 */
+			loopForSensor(	"\r\nINA219:\n\r",		/*	tagString			*/
+					&readSensorRegisterINA219,	/*	readSensorRegisterFunction	*/
+					&deviceINA219State,		/*	i2cDeviceState			*/
+					NULL,				/*	spiDeviceState			*/
+					baseAddress,			/*	baseAddress			*/
+					0x00,				/*	minAddress			*/
+					0x05,				/*	maxAddress			*/
+					repetitionsPerAddress,		/*	repetitionsPerAddress		*/
+					chunkReadsPerAddress,		/*	chunkReadsPerAddress		*/
+					spinDelay,			/*	spinDelay			*/
+					autoIncrement,			/*	autoIncrement			*/
+					sssupplyMillivolts,		/*	sssupplyMillivolts		*/
+					referenceByte,			/*	referenceByte			*/
+					adaptiveSssupplyMaxMillivolts,	/*	adaptiveSssupplyMaxMillivolts	*/
+					chatty				/*	chatty				*/
+					);
+			break;
+		}
 		case kWarpSensorMMA8451Q:
 		{
 			/*
