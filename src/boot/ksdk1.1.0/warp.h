@@ -176,6 +176,7 @@ typedef struct
 	uint8_t			i2cAddress;
 	WarpTypeMask		signalType;
 	uint8_t			i2cBuffer[kWarpSizesI2cBufferBytes];
+	uint8_t			NumberBytes;
 
 	WarpStatus		deviceStatus;
 } WarpI2CDeviceState;

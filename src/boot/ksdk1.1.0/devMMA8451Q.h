@@ -45,6 +45,7 @@ WarpStatus	writeSensorRegisterMMA8451Q(uint8_t deviceRegister,
 					uint8_t payloadBtye,
 					uint16_t menuI2cPullupValue);
 WarpStatus	configureSensorMMA8451Q(uint8_t payloadF_SETUP, uint8_t payloadCTRL_REG1, uint16_t menuI2cPullupValue);
+WarpStatus      configureSensorMMA8451QDropDetect(uint16_t menuI2cPullupValue);
 WarpStatus	readSensorSignalMMA8451Q(WarpTypeMask signal,
 					WarpSignalPrecision precision,
 					WarpSignalAccuracy accuracy,

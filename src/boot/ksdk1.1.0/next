@@ -1,0 +1,28 @@
+#include "devSG90.h"
+
+volatile uint32_t * kTPM1_SC = (uint32_t *) 0x40039000;
+volatile uint32_t * kTPM1_MOD = (uint32_t *) 0x40039008;
+volatile uint32_t * kTPM1_C1V = (uint32_t *) 0x40039018;
+volatile uint32_t * kTPM1_C1SC = (uint32_t *) 0x40039014;
+volatile uint32_t * kTPM1_CONF = (uint32_t *) 0x40039084;
+volatile uint32_t * kSIM_SOPT2 = (uint32_t *) 0x40048004;
+
+uint8_t duty_cycle1 = readHexByte();
+uint8_t duty_cycle2 = readHexByte();
+
+void initSG90()
+{
+	SEGGER_RTT_WriteString(0, "\r\nWriting memory associated with tpm.");
+	SEGGER_RTT_WriteString(0, "\r\nInsert the servo duty cycle in HEX. \r\n0x");
+	*kTPM1_SC = (uint32_t) 0x000A;
+	*kTPM1_MOD = (uint32_t) 0x9C40;
+	*kTPM1_C1V = (uint32_t) 0x0500;
+	*kTPM1_C1SC = (uint32_t) 0x0028;
+	*kTPM1_CONF = (uint32_t) 0x00C0;
+	*kSIM_SOPT2 = *kSIM_SOPT2 | (uint32_t) 0x03000000;
+}
+
+void setSG90Position(uint32_t dutycycle)
+{
+	*kTPM1_C1V = dutycycle;
+}

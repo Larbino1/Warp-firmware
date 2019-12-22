@@ -8,11 +8,14 @@
 	mkdir -p work/demos/Warp/src/btstack
 
 	cp -r ../../tools/sdk/ksdk1.1.0/*				work
+	cp ../../src/boot/ksdk1.1.0/SEGGER*				work/platform/hal/src/tpm/
 	cp ../../src/boot/ksdk1.1.0/SEGGER*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/warp-kl03-ksdk1.1-boot.c		work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/warp-kl03-ksdk1.1-powermodes.c	work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/warp.h				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devSSD1331.*			work/demos/Warp/src/
+	cp ../../src/boot/ksdk1.1.0/PWMdriver.*				work/demos/Warp/src/
+	cp ../../src/boot/ksdk1.1.0/devSG90.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devBMX055.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devADXL362.*			work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devMMA8451Q.*			work/demos/Warp/src/
@@ -41,9 +44,7 @@
 	cd ../../../../demos/Warp/armgcc/Warp && ./clean.sh; ./build_release.sh
 	
 	cd ./release
-	pwd
-	scp ./Warp.* dl564@gate.eng.cam.ac.uk:./
+	cp ./Warp.srec ~/4B25CW5/Warp.srec
 
-	sha1sum ./Warp.srec
 
 

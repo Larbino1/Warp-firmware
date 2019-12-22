@@ -1,0 +1,321 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BIT	devRV8803C7.c	66;"	d	file:
+BOARD_SW_LLWU_BASE	warp-kl03-ksdk1.1-powermodes.c	55;"	d	file:
+BOARD_SW_LLWU_IRQ_HANDLER	warp-kl03-ksdk1.1-powermodes.c	56;"	d	file:
+BOARD_SW_LLWU_IRQ_NUM	warp-kl03-ksdk1.1-powermodes.c	57;"	d	file:
+BOARD_SW_LLWU_PIN	warp-kl03-ksdk1.1-powermodes.c	54;"	d	file:
+BUFFER_SIZE_DOWN	SEGGER_RTT.c	98;"	d	file:
+BUFFER_SIZE_UP	SEGGER_RTT.c	94;"	d	file:
+BufferSize	SEGGER_RTT_printf.c	/^  unsigned  BufferSize;$/;"	m	struct:__anon7	file:
+Cnt	SEGGER_RTT_printf.c	/^  unsigned  Cnt;$/;"	m	struct:__anon7	file:
+FORMAT_FLAG_ALTERNATE	SEGGER_RTT_printf.c	81;"	d	file:
+FORMAT_FLAG_LEFT_JUSTIFY	SEGGER_RTT_printf.c	78;"	d	file:
+FORMAT_FLAG_PAD_ZERO	SEGGER_RTT_printf.c	79;"	d	file:
+FORMAT_FLAG_PRINT_SIGN	SEGGER_RTT_printf.c	80;"	d	file:
+INIT	SEGGER_RTT.c	273;"	d	file:
+LedOffAS7262	devAS7262.c	/^LedOffAS7262(void) {$/;"	f
+LedOnAS7262	devAS7262.c	/^LedOnAS7262(void) {$/;"	f
+MAX	SEGGER_RTT.c	156;"	d	file:
+MIN	SEGGER_RTT.c	152;"	d	file:
+NULL	SEGGER_RTT.c	162;"	d	file:
+PRAGMA	SEGGER_RTT.c	179;"	d	file:
+RTC_IRQHandler	warp-kl03-ksdk1.1-boot.c	/^RTC_IRQHandler(void)$/;"	f
+RTC_Seconds_IRQHandler	warp-kl03-ksdk1.1-boot.c	/^RTC_Seconds_IRQHandler(void)$/;"	f
+RTTBufferIndex	SEGGER_RTT_printf.c	/^  unsigned RTTBufferIndex;$/;"	m	struct:__anon7	file:
+RTT_PRAGMA	SEGGER_RTT.c	172;"	d	file:
+ReturnValue	SEGGER_RTT_printf.c	/^  int   ReturnValue;$/;"	m	struct:__anon7	file:
+SEGGER_RTT_ALIGN	SEGGER_RTT.c	177;"	d	file:
+SEGGER_RTT_ALIGN	SEGGER_RTT.c	180;"	d	file:
+SEGGER_RTT_ALIGN	SEGGER_RTT.c	183;"	d	file:
+SEGGER_RTT_ALIGN	SEGGER_RTT.c	188;"	d	file:
+SEGGER_RTT_ALIGNMENT	SEGGER_RTT.c	116;"	d	file:
+SEGGER_RTT_AllocDownBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_AllocDownBuffer(const char* sName, void* pBuffer, unsigned BufferSize, unsigned Flags) {$/;"	f
+SEGGER_RTT_AllocUpBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_AllocUpBuffer(const char* sName, void* pBuffer, unsigned BufferSize, unsigned Flags) {$/;"	f
+SEGGER_RTT_BUFFER_ALIGN	SEGGER_RTT.c	214;"	d	file:
+SEGGER_RTT_BUFFER_ALIGN	SEGGER_RTT.c	216;"	d	file:
+SEGGER_RTT_BUFFER_ALIGNMENT	SEGGER_RTT.c	120;"	d	file:
+SEGGER_RTT_BUFFER_SECTION	SEGGER_RTT.c	111;"	d	file:
+SEGGER_RTT_CB_ALIGN	SEGGER_RTT.c	208;"	d	file:
+SEGGER_RTT_CB_ALIGN	SEGGER_RTT.c	210;"	d	file:
+SEGGER_RTT_ConfigDownBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_ConfigDownBuffer(unsigned BufferIndex, const char* sName, void* pBuffer, unsigned BufferSize, unsigned Flags) {$/;"	f
+SEGGER_RTT_ConfigUpBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_ConfigUpBuffer(unsigned BufferIndex, const char* sName, void* pBuffer, unsigned BufferSize, unsigned Flags) {$/;"	f
+SEGGER_RTT_GetKey	SEGGER_RTT.c	/^int SEGGER_RTT_GetKey(void) {$/;"	f
+SEGGER_RTT_HasData	SEGGER_RTT.c	/^unsigned SEGGER_RTT_HasData(unsigned BufferIndex) {$/;"	f
+SEGGER_RTT_HasDataUp	SEGGER_RTT.c	/^unsigned SEGGER_RTT_HasDataUp(unsigned BufferIndex) {$/;"	f
+SEGGER_RTT_HasKey	SEGGER_RTT.c	/^int SEGGER_RTT_HasKey(void) {$/;"	f
+SEGGER_RTT_Init	SEGGER_RTT.c	/^void SEGGER_RTT_Init (void) {$/;"	f
+SEGGER_RTT_LOCK	SEGGER_RTT.c	128;"	d	file:
+SEGGER_RTT_MAX_NUM_DOWN_BUFFERS	SEGGER_RTT.c	106;"	d	file:
+SEGGER_RTT_MAX_NUM_UP_BUFFERS	SEGGER_RTT.c	102;"	d	file:
+SEGGER_RTT_MEMCPY	SEGGER_RTT.c	145;"	d	file:
+SEGGER_RTT_MEMCPY	SEGGER_RTT.c	147;"	d	file:
+SEGGER_RTT_MEMCPY_USE_BYTELOOP	SEGGER_RTT.c	140;"	d	file:
+SEGGER_RTT_MODE_DEFAULT	SEGGER_RTT.c	124;"	d	file:
+SEGGER_RTT_PRINTF_BUFFER_SIZE	SEGGER_RTT_printf.c	71;"	d	file:
+SEGGER_RTT_PRINTF_DESC	SEGGER_RTT_printf.c	/^} SEGGER_RTT_PRINTF_DESC;$/;"	t	typeref:struct:__anon7	file:
+SEGGER_RTT_PUT_BUFFER_SECTION	SEGGER_RTT.c	227;"	d	file:
+SEGGER_RTT_PUT_BUFFER_SECTION	SEGGER_RTT.c	229;"	d	file:
+SEGGER_RTT_PUT_CB_SECTION	SEGGER_RTT.c	221;"	d	file:
+SEGGER_RTT_PUT_CB_SECTION	SEGGER_RTT.c	223;"	d	file:
+SEGGER_RTT_PUT_SECTION	SEGGER_RTT.c	193;"	d	file:
+SEGGER_RTT_PUT_SECTION	SEGGER_RTT.c	195;"	d	file:
+SEGGER_RTT_PUT_SECTION	SEGGER_RTT.c	198;"	d	file:
+SEGGER_RTT_PUT_SECTION	SEGGER_RTT.c	203;"	d	file:
+SEGGER_RTT_PutChar	SEGGER_RTT.c	/^unsigned SEGGER_RTT_PutChar(unsigned BufferIndex, char c) {$/;"	f
+SEGGER_RTT_PutCharSkip	SEGGER_RTT.c	/^unsigned SEGGER_RTT_PutCharSkip(unsigned BufferIndex, char c) {$/;"	f
+SEGGER_RTT_PutCharSkipNoLock	SEGGER_RTT.c	/^unsigned SEGGER_RTT_PutCharSkipNoLock(unsigned BufferIndex, char c) {$/;"	f
+SEGGER_RTT_Read	SEGGER_RTT.c	/^unsigned SEGGER_RTT_Read(unsigned BufferIndex, void* pBuffer, unsigned BufferSize) {$/;"	f
+SEGGER_RTT_ReadNoLock	SEGGER_RTT.c	/^unsigned SEGGER_RTT_ReadNoLock(unsigned BufferIndex, void* pData, unsigned BufferSize) {$/;"	f
+SEGGER_RTT_SetFlagsDownBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_SetFlagsDownBuffer(unsigned BufferIndex, unsigned Flags) {$/;"	f
+SEGGER_RTT_SetFlagsUpBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_SetFlagsUpBuffer(unsigned BufferIndex, unsigned Flags) {$/;"	f
+SEGGER_RTT_SetNameDownBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_SetNameDownBuffer(unsigned BufferIndex, const char* sName) {$/;"	f
+SEGGER_RTT_SetNameUpBuffer	SEGGER_RTT.c	/^int SEGGER_RTT_SetNameUpBuffer(unsigned BufferIndex, const char* sName) {$/;"	f
+SEGGER_RTT_SetTerminal	SEGGER_RTT.c	/^int SEGGER_RTT_SetTerminal (char TerminalId) {$/;"	f
+SEGGER_RTT_TerminalOut	SEGGER_RTT.c	/^int SEGGER_RTT_TerminalOut (char TerminalId, const char* s) {$/;"	f
+SEGGER_RTT_UNLOCK	SEGGER_RTT.c	132;"	d	file:
+SEGGER_RTT_WaitKey	SEGGER_RTT.c	/^int SEGGER_RTT_WaitKey(void) {$/;"	f
+SEGGER_RTT_Write	SEGGER_RTT.c	/^unsigned SEGGER_RTT_Write(unsigned BufferIndex, const void* pBuffer, unsigned NumBytes) {$/;"	f
+SEGGER_RTT_WriteNoLock	SEGGER_RTT.c	/^unsigned SEGGER_RTT_WriteNoLock(unsigned BufferIndex, const void* pBuffer, unsigned NumBytes) {$/;"	f
+SEGGER_RTT_WriteSkipNoLock	SEGGER_RTT.c	/^unsigned SEGGER_RTT_WriteSkipNoLock(unsigned BufferIndex, const void* pBuffer, unsigned NumBytes) {$/;"	f
+SEGGER_RTT_WriteString	SEGGER_RTT.c	/^unsigned SEGGER_RTT_WriteString(unsigned BufferIndex, const char* s) {$/;"	f
+SEGGER_RTT_WriteWithOverwriteNoLock	SEGGER_RTT.c	/^void SEGGER_RTT_WriteWithOverwriteNoLock(unsigned BufferIndex, const void* pBuffer, unsigned NumBytes) {$/;"	f
+SEGGER_RTT_printf	SEGGER_RTT_printf.c	/^int SEGGER_RTT_printf(unsigned BufferIndex, const char * sFormat, ...) {$/;"	f
+SEGGER_RTT_vprintf	SEGGER_RTT_printf.c	/^int SEGGER_RTT_vprintf(unsigned BufferIndex, const char * sFormat, va_list * pParamList) {$/;"	f
+STRLEN	SEGGER_RTT.c	136;"	d	file:
+WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF	warp-kl03-ksdk1.1-boot.c	91;"	d	file:
+WARP_FRDMKL03	warp-kl03-ksdk1.1-boot.c	59;"	d	file:
+WarpRV8803CtrlFlag	devRV8803C7.c	/^} WarpRV8803CtrlFlag;$/;"	t	typeref:enum:__anon5	file:
+WarpRV8803ExtClr	devRV8803C7.c	/^} WarpRV8803ExtClr;$/;"	t	typeref:enum:__anon2	file:
+WarpRV8803ExtFlag	devRV8803C7.c	/^} WarpRV8803ExtFlag;$/;"	t	typeref:enum:__anon3	file:
+WarpRV8803FlagFlag	devRV8803C7.c	/^} WarpRV8803FlagFlag;$/;"	t	typeref:enum:__anon4	file:
+WarpRV8803Reg	devRV8803C7.c	/^} WarpRV8803Reg;$/;"	t	typeref:enum:__anon1	file:
+_ActiveTerminal	SEGGER_RTT.c	/^static char _ActiveTerminal;$/;"	v	file:
+_DoInit	SEGGER_RTT.c	/^static void _DoInit(void) {$/;"	f	file:
+_GetAvailWriteSpace	SEGGER_RTT.c	/^static unsigned _GetAvailWriteSpace(SEGGER_RTT_BUFFER_UP* pRing) {$/;"	f	file:
+_PostTerminalSwitch	SEGGER_RTT.c	/^static void _PostTerminalSwitch(SEGGER_RTT_BUFFER_UP* pRing, unsigned char TerminalId) {$/;"	f	file:
+_PrintInt	SEGGER_RTT_printf.c	/^static void _PrintInt(SEGGER_RTT_PRINTF_DESC * pBufferDesc, int v, unsigned Base, unsigned NumDigits, unsigned FieldWidth, unsigned FormatFlags) {$/;"	f	file:
+_PrintUnsigned	SEGGER_RTT_printf.c	/^static void _PrintUnsigned(SEGGER_RTT_PRINTF_DESC * pBufferDesc, unsigned v, unsigned Base, unsigned NumDigits, unsigned FieldWidth, unsigned FormatFlags) {$/;"	f	file:
+_StoreChar	SEGGER_RTT_printf.c	/^static void _StoreChar(SEGGER_RTT_PRINTF_DESC * p, char c) {$/;"	f	file:
+_WriteBlocking	SEGGER_RTT.c	/^static unsigned _WriteBlocking(SEGGER_RTT_BUFFER_UP* pRing, const char* pBuffer, unsigned NumBytes) {$/;"	f	file:
+_WriteNoCheck	SEGGER_RTT.c	/^static void _WriteNoCheck(SEGGER_RTT_BUFFER_UP* pRing, const char* pData, unsigned NumBytes) {$/;"	f	file:
+_aTerminalId	SEGGER_RTT.c	/^static unsigned char _aTerminalId[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };$/;"	v	file:
+activateAllLowPowerSensorModes	warp-kl03-ksdk1.1-boot.c	/^activateAllLowPowerSensorModes(bool verbose)$/;"	f
+addAndMultiplicationBusyLoop	warp-kl03-ksdk1.1-boot.c	/^addAndMultiplicationBusyLoop(long iterations)$/;"	f
+bin2bcd	devRV8803C7.c	/^uint8_t bin2bcd(uint8_t bin) {$/;"	f
+callback0	warp-kl03-ksdk1.1-boot.c	/^power_manager_error_code_t callback0(power_manager_notify_struct_t *  notify,$/;"	f
+char2int	warp-kl03-ksdk1.1-boot.c	/^char2int(int character)$/;"	f
+checkSum	warp-kl03-ksdk1.1-boot.c	/^checkSum(uint8_t *  pointer, uint16_t length) \/*	Adapted from https:\/\/stackoverflow.com\/questions\/31151032\/writing-an-8-bit-checksum-in-c	*\/$/;"	f
+clockCallbackTable	warp-kl03-ksdk1.1-boot.c	/^static clock_manager_callback_user_config_t *	clockCallbackTable[] =$/;"	v	file:
+clockManagerCallbackRoutine	warp-kl03-ksdk1.1-boot.c	/^clockManagerCallbackRoutine(clock_notify_struct_t *  notify, void *  callbackData)$/;"	f
+clockManagerCallbackUserlevelStructure	warp-kl03-ksdk1.1-boot.c	/^clock_manager_callback_user_config_t		clockManagerCallbackUserlevelStructure =$/;"	v
+configureSensorAMG8834	devAMG8834.c	/^configureSensorAMG8834(uint8_t payloadConfigReg, uint8_t payloadFrameRateReg, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorBME680	devBME680.c	/^configureSensorBME680(uint8_t payloadCtrl_Hum, uint8_t payloadCtrl_Meas, uint8_t payloadGas_0, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorBMX055accel	devBMX055.c	/^configureSensorBMX055accel(uint8_t payloadPMU_RANGE, uint8_t payloadACCD_HBW, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorBMX055gyro	devBMX055.c	/^configureSensorBMX055gyro(uint8_t payloadRANGE, uint8_t payloadBW, uint8_t payloadLPM1, uint8_t payloadRATE_HBW, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorBMX055mag	devBMX055.c	/^configureSensorBMX055mag(uint8_t payloadPowerCtrl, uint8_t payloadOpMode, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorCCS811	devCCS811.c	/^configureSensorCCS811(uint8_t *payloadMEAS_MODE, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorL3GD20H	devL3GD20H.c	/^configureSensorL3GD20H(uint8_t payloadCTRL1, uint8_t payloadCTRL2, uint8_t payloadCTRL5, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorMAG3110	devMAG3110.c	/^configureSensorMAG3110(uint8_t payloadCTRL_REG1, uint8_t payloadCTRL_REG2, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorMMA8451Q	devMMA8451Q.c	/^configureSensorMMA8451Q(uint8_t payloadF_SETUP, uint8_t payloadCTRL_REG1, uint16_t menuI2cPullupValue)$/;"	f
+configureSensorMMA8451QDropDetect	devMMA8451Q.c	/^configureSensorMMA8451QDropDetect(uint16_t menuI2cPullupValue)$/;"	f
+date2weekday	devRV8803C7.c	/^uint8_t date2weekday(uint8_t day, uint8_t month, uint8_t year) {$/;"	f
+devSSD1331init	devSSD1331.c	/^devSSD1331init(void)$/;"	f
+deviceADXL362State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpSPIDeviceState			deviceADXL362State;$/;"	v
+deviceAMG8834State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceAMG8834State;$/;"	v
+deviceAS7262State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceAS7262State;$/;"	v
+deviceAS7263State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceAS7263State;$/;"	v
+deviceBME680CalibrationValues	warp-kl03-ksdk1.1-boot.c	/^volatile uint8_t				deviceBME680CalibrationValues[kWarpSizesBME680CalibrationValuesCount];$/;"	v
+deviceBME680State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceBME680State;$/;"	v
+deviceBMX055accelState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceBMX055accelState;$/;"	v
+deviceBMX055gyroState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceBMX055gyroState;$/;"	v
+deviceBMX055magState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceBMX055magState;$/;"	v
+deviceCCS811State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceCCS811State;$/;"	v
+deviceHDC1000State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceHDC1000State;$/;"	v
+deviceINA219State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceINA219State;$/;"	v
+deviceL3GD20HState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceL3GD20HState;$/;"	v
+deviceLPS25HState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceLPS25HState;$/;"	v
+deviceMAG3110State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceMAG3110State;$/;"	v
+deviceMMA8451QState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceMMA8451QState;$/;"	v
+devicePAN1323ETUState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpUARTDeviceState			devicePAN1323ETUState;$/;"	v
+devicePAN1326BState	warp-kl03-ksdk1.1-boot.c	/^volatile WarpUARTDeviceState			devicePAN1326BState;$/;"	v
+deviceRV8803C7State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceRV8803C7State;$/;"	v
+deviceSI4705State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceSI4705State;$/;"	v
+deviceSI7021State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceSI7021State;$/;"	v
+deviceTCS34725State	warp-kl03-ksdk1.1-boot.c	/^volatile WarpI2CDeviceState			deviceTCS34725State;$/;"	v
+disableI2Cpins	warp-kl03-ksdk1.1-boot.c	/^disableI2Cpins(void)$/;"	f
+disableLPUARTpins	warp-kl03-ksdk1.1-boot.c	/^disableLPUARTpins(void)$/;"	f
+disableSPIpins	warp-kl03-ksdk1.1-boot.c	/^disableSPIpins(void)$/;"	f
+disableSssupply	warp-kl03-ksdk1.1-boot.c	/^disableSssupply(void)$/;"	f
+disableTPS82740A	warp-kl03-ksdk1.1-boot.c	/^disableTPS82740A(void)$/;"	f
+disableTPS82740B	warp-kl03-ksdk1.1-boot.c	/^disableTPS82740B(void)$/;"	f
+dumpProcessorState	warp-kl03-ksdk1.1-boot.c	/^dumpProcessorState(void)$/;"	f
+enableI2Cpins	warp-kl03-ksdk1.1-boot.c	/^enableI2Cpins(uint16_t pullupValue)$/;"	f
+enableLPUARTpins	warp-kl03-ksdk1.1-boot.c	/^enableLPUARTpins(void)$/;"	f
+enableSPIpins	warp-kl03-ksdk1.1-boot.c	/^enableSPIpins(void)$/;"	f
+enableSssupply	warp-kl03-ksdk1.1-boot.c	/^enableSssupply(uint16_t voltageMillivolts)$/;"	f
+enableTPS82740A	warp-kl03-ksdk1.1-boot.c	/^enableTPS82740A(uint16_t voltageMillivolts)$/;"	f
+enableTPS82740B	warp-kl03-ksdk1.1-boot.c	/^enableTPS82740B(uint16_t voltageMillivolts)$/;"	f
+gWarpI2cBaudRateKbps	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpI2cBaudRateKbps		= 200;$/;"	v
+gWarpI2cTimeoutMilliseconds	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpI2cTimeoutMilliseconds	= 5;$/;"	v
+gWarpMenuPrintDelayMilliseconds	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpMenuPrintDelayMilliseconds	= 10;$/;"	v
+gWarpMode	warp-kl03-ksdk1.1-boot.c	/^volatile WarpModeMask			gWarpMode			= kWarpModeDisableAdcOnSleep;$/;"	v
+gWarpSleeptimeSeconds	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpSleeptimeSeconds		= 0;$/;"	v
+gWarpSpiBaudRateKbps	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpSpiBaudRateKbps		= 200;$/;"	v
+gWarpSpiTimeoutMicroseconds	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpSpiTimeoutMicroseconds	= 5;$/;"	v
+gWarpSupplySettlingDelayMilliseconds	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpSupplySettlingDelayMilliseconds = 1;$/;"	v
+gWarpUartBaudRateKbps	warp-kl03-ksdk1.1-boot.c	/^volatile uint32_t			gWarpUartBaudRateKbps		= 1;$/;"	v
+gpioDisableWakeUp	warp-kl03-ksdk1.1-powermodes.c	/^gpioDisableWakeUp(void)$/;"	f
+i2cMasterState	warp-kl03-ksdk1.1-boot.c	/^volatile i2c_master_state_t			i2cMasterState;$/;"	v
+inBuffer	devSSD1331.c	/^volatile uint8_t	inBuffer[1];$/;"	v
+initADXL362	devADXL362.c	/^initADXL362(WarpSPIDeviceState volatile *  deviceStatePointer)$/;"	f
+initAMG8834	devAMG8834.c	/^initAMG8834(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initAS7262	devAS7262.c	/^initAS7262(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initAS7263	devAS7263.c	/^initAS7263(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initBME680	devBME680.c	/^initBME680(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initBMX055accel	devBMX055.c	/^initBMX055accel(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initBMX055gyro	devBMX055.c	/^initBMX055gyro(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initBMX055mag	devBMX055.c	/^initBMX055mag(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initCCS811	devCCS811.c	/^initCCS811(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initHDC1000	devHDC1000.c	/^initHDC1000(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initINA219	devINA219.c	/^initINA219(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initL3GD20H	devL3GD20H.c	/^initL3GD20H(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initLPS25H	devLPS25H.c	/^initLPS25H(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initMAG3110	devMAG3110.c	/^initMAG3110(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initMMA8451Q	devMMA8451Q.c	/^initMMA8451Q(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initPAN1323ETU	devPAN1326.c	/^initPAN1323ETU(WarpUARTDeviceState volatile *  deviceStatePointer)$/;"	f
+initPAN1326B	devPAN1326.c	/^initPAN1326B(WarpUARTDeviceState volatile *  deviceStatePointer)$/;"	f
+initPAN132x	devPAN1326.c	/^initPAN132x(WarpUARTDeviceState volatile *  deviceStatePointer)$/;"	f	file:
+initRV8803C7	devRV8803C7.c	/^void initRV8803C7(const uint8_t i2cAddress, WarpI2CDeviceState volatile * deviceStatePointer) {$/;"	f
+initSG90	devSG90.c	/^void initSG90()$/;"	f
+initSI4705	devSI4705.c	/^initSI4705(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initSI7021	devSI7021.c	/^initSI7021(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+initTCS34725	devTCS34725.c	/^initTCS34725(const uint8_t i2cAddress, WarpI2CDeviceState volatile *  deviceStatePointer)$/;"	f
+inputPins	gpio_pins.c	/^gpio_input_pin_user_config_t	inputPins[] = {$/;"	v
+kSIM_SOPT2	devSG90.c	/^volatile uint32_t * kSIM_SOPT2 = (uint32_t *) 0x40048004;$/;"	v
+kSSD1331PinCSn	devSSD1331.c	/^	kSSD1331PinCSn		= GPIO_MAKE_PIN(HW_GPIOB, 13),$/;"	e	enum:__anon6	file:
+kSSD1331PinDC	devSSD1331.c	/^	kSSD1331PinDC		= GPIO_MAKE_PIN(HW_GPIOA, 12),$/;"	e	enum:__anon6	file:
+kSSD1331PinMOSI	devSSD1331.c	/^	kSSD1331PinMOSI		= GPIO_MAKE_PIN(HW_GPIOA, 8),$/;"	e	enum:__anon6	file:
+kSSD1331PinRST	devSSD1331.c	/^	kSSD1331PinRST		= GPIO_MAKE_PIN(HW_GPIOB, 0),$/;"	e	enum:__anon6	file:
+kSSD1331PinSCK	devSSD1331.c	/^	kSSD1331PinSCK		= GPIO_MAKE_PIN(HW_GPIOA, 9),$/;"	e	enum:__anon6	file:
+kTPM1_C1SC	devSG90.c	/^volatile uint32_t * kTPM1_C1SC = (uint32_t *) 0x40039014;$/;"	v
+kTPM1_C1V	devSG90.c	/^volatile uint32_t * kTPM1_C1V = (uint32_t *) 0x40039018;$/;"	v
+kTPM1_CONF	devSG90.c	/^volatile uint32_t * kTPM1_CONF = (uint32_t *) 0x40039084;$/;"	v
+kTPM1_MOD	devSG90.c	/^volatile uint32_t * kTPM1_MOD = (uint32_t *) 0x40039008;$/;"	v
+kTPM1_SC	devSG90.c	/^volatile uint32_t * kTPM1_SC = (uint32_t *) 0x40039000;$/;"	v
+kWarpConstantStringErrorInvalidVoltage	warp-kl03-ksdk1.1-boot.c	102;"	d	file:
+kWarpConstantStringErrorSanity	warp-kl03-ksdk1.1-boot.c	103;"	d	file:
+kWarpConstantStringI2cFailure	warp-kl03-ksdk1.1-boot.c	101;"	d	file:
+kWarpRV8803CtrlAIE	devRV8803C7.c	/^	kWarpRV8803CtrlAIE			= BIT(3),$/;"	e	enum:__anon5	file:
+kWarpRV8803CtrlEIE	devRV8803C7.c	/^	kWarpRV8803CtrlEIE			= BIT(2),$/;"	e	enum:__anon5	file:
+kWarpRV8803CtrlRESET	devRV8803C7.c	/^	kWarpRV8803CtrlRESET			= BIT(0),$/;"	e	enum:__anon5	file:
+kWarpRV8803CtrlTIE	devRV8803C7.c	/^	kWarpRV8803CtrlTIE			= BIT(4),$/;"	e	enum:__anon5	file:
+kWarpRV8803CtrlUIE	devRV8803C7.c	/^	kWarpRV8803CtrlUIE			= BIT(5),$/;"	e	enum:__anon5	file:
+kWarpRV8803ExtClrFD	devRV8803C7.c	/^	kWarpRV8803ExtClrFD			= 0xF3,$/;"	e	enum:__anon2	file:
+kWarpRV8803ExtClrTD	devRV8803C7.c	/^	kWarpRV8803ExtClrTD			= 0xFC,$/;"	e	enum:__anon2	file:
+kWarpRV8803ExtTE	devRV8803C7.c	/^	kWarpRV8803ExtTE			= BIT(4),$/;"	e	enum:__anon3	file:
+kWarpRV8803ExtTEST	devRV8803C7.c	/^	kWarpRV8803ExtTEST			= BIT(7),$/;"	e	enum:__anon3	file:
+kWarpRV8803ExtUSEL	devRV8803C7.c	/^	kWarpRV8803ExtUSEL			= BIT(5),$/;"	e	enum:__anon3	file:
+kWarpRV8803ExtWADA	devRV8803C7.c	/^	kWarpRV8803ExtWADA			= BIT(6),$/;"	e	enum:__anon3	file:
+kWarpRV8803FlagAF	devRV8803C7.c	/^	kWarpRV8803FlagAF			= BIT(3),$/;"	e	enum:__anon4	file:
+kWarpRV8803FlagEVF	devRV8803C7.c	/^	kWarpRV8803FlagEVF			= BIT(2),$/;"	e	enum:__anon4	file:
+kWarpRV8803FlagTF	devRV8803C7.c	/^	kWarpRV8803FlagTF			= BIT(4),$/;"	e	enum:__anon4	file:
+kWarpRV8803FlagUF	devRV8803C7.c	/^	kWarpRV8803FlagUF			= BIT(5),$/;"	e	enum:__anon4	file:
+kWarpRV8803FlagV1F	devRV8803C7.c	/^	kWarpRV8803FlagV1F			= BIT(0),$/;"	e	enum:__anon4	file:
+kWarpRV8803FlagV2F	devRV8803C7.c	/^	kWarpRV8803FlagV2F			= BIT(1),$/;"	e	enum:__anon4	file:
+kWarpRV8803RegCtrl	devRV8803C7.c	/^	kWarpRV8803RegCtrl			= 0x0F,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegDate	devRV8803C7.c	/^	kWarpRV8803RegDate			= 0x04,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegExt	devRV8803C7.c	/^	kWarpRV8803RegExt			= 0x0D,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegFlag	devRV8803C7.c	/^	kWarpRV8803RegFlag			= 0x0E,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegHour	devRV8803C7.c	/^	kWarpRV8803RegHour			= 0x02,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegHourAlarm	devRV8803C7.c	/^	kWarpRV8803RegHourAlarm			= 0x09,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegMin	devRV8803C7.c	/^	kWarpRV8803RegMin			= 0x01,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegMinAlarm	devRV8803C7.c	/^	kWarpRV8803RegMinAlarm			= 0x08,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegMonth	devRV8803C7.c	/^	kWarpRV8803RegMonth			= 0x05,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegRAM	devRV8803C7.c	/^	kWarpRV8803RegRAM			= 0x07,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegSec	devRV8803C7.c	/^	kWarpRV8803RegSec			= 0x00,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegTimerCounter0	devRV8803C7.c	/^	kWarpRV8803RegTimerCounter0		= 0x0B,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegTimerCounter1	devRV8803C7.c	/^	kWarpRV8803RegTimerCounter1		= 0x0C,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegWeekday	devRV8803C7.c	/^	kWarpRV8803RegWeekday			= 0x03,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegWeekdayOrDateAlarm	devRV8803C7.c	/^	kWarpRV8803RegWeekdayOrDateAlarm	= 0x0A,$/;"	e	enum:__anon1	file:
+kWarpRV8803RegYear	devRV8803C7.c	/^	kWarpRV8803RegYear			= 0x06,$/;"	e	enum:__anon1	file:
+loopForSensor	warp-kl03-ksdk1.1-boot.c	/^loopForSensor(	const char *  tagString,$/;"	f
+lowPowerPinStates	warp-kl03-ksdk1.1-boot.c	/^lowPowerPinStates(void)$/;"	f
+lpuartState	warp-kl03-ksdk1.1-boot.c	/^volatile lpuart_state_t 			lpuartState;$/;"	v
+lpuartUserConfig	warp-kl03-ksdk1.1-boot.c	/^volatile lpuart_user_config_t 			lpuartUserConfig;$/;"	v
+main	warp-kl03-ksdk1.1-boot.c	/^main(void)$/;"	f
+outputPins	gpio_pins.c	/^gpio_output_pin_user_config_t	outputPins[] = {$/;"	v
+pBuffer	SEGGER_RTT_printf.c	/^  char*     pBuffer;$/;"	m	struct:__anon7	file:
+payloadBytes	devSSD1331.c	/^volatile uint8_t	payloadBytes[1];$/;"	v
+powerupAllSensors	warp-kl03-ksdk1.1-boot.c	/^powerupAllSensors(void)$/;"	f
+printAllSensors	warp-kl03-ksdk1.1-boot.c	/^printAllSensors(bool printHeadersAndCalibration, bool hexModeFlag, int menuDelayBetweenEachRun, int i2cPullupValue)$/;"	f
+printPinDirections	warp-kl03-ksdk1.1-boot.c	/^printPinDirections(void)$/;"	f
+printSensorDataAMG8834	devAMG8834.c	/^printSensorDataAMG8834(bool hexModeFlag)$/;"	f
+printSensorDataBME680	devBME680.c	/^printSensorDataBME680(bool hexModeFlag, uint16_t menuI2cPullupValue)$/;"	f
+printSensorDataBMX055accel	devBMX055.c	/^printSensorDataBMX055accel(bool hexModeFlag)$/;"	f
+printSensorDataBMX055gyro	devBMX055.c	/^printSensorDataBMX055gyro(bool hexModeFlag)$/;"	f
+printSensorDataBMX055mag	devBMX055.c	/^printSensorDataBMX055mag(bool hexModeFlag)$/;"	f
+printSensorDataCCS811	devCCS811.c	/^printSensorDataCCS811(bool hexModeFlag)$/;"	f
+printSensorDataHDC1000	devHDC1000.c	/^printSensorDataHDC1000(bool hexModeFlag)$/;"	f
+printSensorDataL3GD20H	devL3GD20H.c	/^printSensorDataL3GD20H(bool hexModeFlag)$/;"	f
+printSensorDataMAG3110	devMAG3110.c	/^printSensorDataMAG3110(bool hexModeFlag)$/;"	f
+printSensorDataMMA8451Q	devMMA8451Q.c	/^printSensorDataMMA8451Q(bool hexModeFlag)$/;"	f
+read4digits	warp-kl03-ksdk1.1-boot.c	/^read4digits(void)$/;"	f
+readHexByte	warp-kl03-ksdk1.1-boot.c	/^readHexByte(void)$/;"	f
+readRTCRegisterRV8803C7	devRV8803C7.c	/^WarpStatus readRTCRegisterRV8803C7(uint8_t deviceRegister, uint8_t *receiveData) {$/;"	f
+readRTCRegistersRV8803C7	devRV8803C7.c	/^WarpStatus readRTCRegistersRV8803C7(uint8_t deviceStartRegister, uint8_t nRegs, uint8_t *receiveData) {$/;"	f
+readSG90Registers	devSG90.c	/^void readSG90Registers()$/;"	f
+readSensorRegisterADXL362	devADXL362.c	/^readSensorRegisterADXL362(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterAMG8834	devAMG8834.c	/^readSensorRegisterAMG8834(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterAS7262	devAS7262.c	/^readSensorRegisterAS7262(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterAS7263	devAS7263.c	/^readSensorRegisterAS7263(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterBME680	devBME680.c	/^readSensorRegisterBME680(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterBMX055accel	devBMX055.c	/^readSensorRegisterBMX055accel(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterBMX055gyro	devBMX055.c	/^readSensorRegisterBMX055gyro(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterBMX055mag	devBMX055.c	/^readSensorRegisterBMX055mag(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterCCS811	devCCS811.c	/^readSensorRegisterCCS811(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterHDC1000	devHDC1000.c	/^readSensorRegisterHDC1000(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterINA219	devINA219.c	/^readSensorRegisterINA219(uint8_t deviceRegister, int numberOfBytes \/* Not used, always 2 *\/)$/;"	f
+readSensorRegisterL3GD20H	devL3GD20H.c	/^readSensorRegisterL3GD20H(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterLPS25H	devLPS25H.c	/^readSensorRegisterLPS25H(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterMAG3110	devMAG3110.c	/^readSensorRegisterMAG3110(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterMMA8451Q	devMMA8451Q.c	/^readSensorRegisterMMA8451Q(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterSI4705	devSI4705.c	/^readSensorRegisterSI4705(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterSI7021	devSI7021.c	/^readSensorRegisterSI7021(uint8_t deviceRegister, int numberOfBytes)$/;"	f
+readSensorRegisterTCS34725	devTCS34725.c	/^readSensorRegisterTCS34725(uint8_t deviceRegister)$/;"	f
+readSensorSignalADXL362	devADXL362.c	/^readSensorSignalADXL362(WarpTypeMask		signal,$/;"	f
+repeatRegisterReadForDeviceAndAddress	warp-kl03-ksdk1.1-boot.c	/^repeatRegisterReadForDeviceAndAddress(WarpSensorDevice warpSensorDevice, uint8_t baseAddress, uint16_t pullupValue, bool autoIncrement, int chunkReadsPerAddress, bool chatty, int spinDelay, int repetitionsPerAddress, uint16_t sssupplyMillivolts, uint16_t adaptiveSssupplyMaxMillivolts, uint8_t referenceByte)$/;"	f
+setRTCCountdownRV8803C7	devRV8803C7.c	/^WarpStatus setRTCCountdownRV8803C7(uint16_t countdown, WarpRV8803ExtTD_t clk_freq, bool interupt_enable) {$/;"	f
+setRTCTimeRV8803C7	devRV8803C7.c	/^WarpStatus setRTCTimeRV8803C7(rtc_datetime_t *tm) {$/;"	f
+setSG90Position	devSG90.c	/^void setSG90Position(uint32_t dutycycle)$/;"	f
+setSleepRtcAlarm	warp-kl03-ksdk1.1-powermodes.c	/^setSleepRtcAlarm(uint32_t offsetSec)$/;"	f	file:
+setTPS82740CommonControlLines	warp-kl03-ksdk1.1-boot.c	/^setTPS82740CommonControlLines(uint16_t voltageMillivolts)$/;"	f
+sleepUntilReset	warp-kl03-ksdk1.1-boot.c	/^sleepUntilReset(void)$/;"	f
+spiMasterState	warp-kl03-ksdk1.1-boot.c	/^volatile spi_master_state_t			spiMasterState;$/;"	v
+spiUserConfig	warp-kl03-ksdk1.1-boot.c	/^volatile spi_master_user_config_t		spiUserConfig;$/;"	v
+updateClockManagerToRunMode	warp-kl03-ksdk1.1-powermodes.c	/^updateClockManagerToRunMode(uint8_t cmConfigMode)$/;"	f
+updateClockManagerToVlprMode	warp-kl03-ksdk1.1-powermodes.c	/^updateClockManagerToVlprMode(uint8_t cmConfigMode)$/;"	f
+update_clock_mode	warp-kl03-ksdk1.1-powermodes.c	/^update_clock_mode(uint8_t cmConfigMode)$/;"	f
+warpLowPowerSecondsSleep	warp-kl03-ksdk1.1-boot.c	/^warpLowPowerSecondsSleep(uint32_t sleepSeconds, bool forceAllPinsIntoLowPowerState)$/;"	f
+warpSetLowPowerMode	warp-kl03-ksdk1.1-powermodes.c	/^warpSetLowPowerMode(WarpPowerMode powerMode, uint32_t sleepSeconds)$/;"	f
+writeByteToI2cDeviceRegister	warp-kl03-ksdk1.1-boot.c	/^writeByteToI2cDeviceRegister(uint8_t i2cAddress, bool sendCommandByte, uint8_t commandByte, bool sendPayloadByte, uint8_t payloadByte)$/;"	f
+writeBytesToSpi	warp-kl03-ksdk1.1-boot.c	/^writeBytesToSpi(uint8_t *  payloadBytes, int payloadLength)$/;"	f
+writeCommand	devSSD1331.c	/^writeCommand(uint8_t commandByte)$/;"	f	file:
+writeRTCRegisterRV8803C7	devRV8803C7.c	/^WarpStatus writeRTCRegisterRV8803C7(uint8_t deviceRegister, uint8_t payload) {$/;"	f
+writeRTCRegistersRV8803C7	devRV8803C7.c	/^WarpStatus writeRTCRegistersRV8803C7(uint8_t deviceStartRegister, uint8_t nRegs, uint8_t payload[]) {$/;"	f
+writeSensorRegisterADXL362	devADXL362.c	/^writeSensorRegisterADXL362(uint8_t command, uint8_t deviceRegister, uint8_t writeValue, int numberOfBytes)$/;"	f
+writeSensorRegisterAMG8834	devAMG8834.c	/^writeSensorRegisterAMG8834(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterBME680	devBME680.c	/^writeSensorRegisterBME680(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterBMX055accel	devBMX055.c	/^writeSensorRegisterBMX055accel(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterBMX055gyro	devBMX055.c	/^writeSensorRegisterBMX055gyro(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterBMX055mag	devBMX055.c	/^writeSensorRegisterBMX055mag(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterCCS811	devCCS811.c	/^writeSensorRegisterCCS811(uint8_t deviceRegister, uint8_t *payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterHDC1000	devHDC1000.c	/^writeSensorRegisterHDC1000(uint8_t deviceRegister, uint16_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterINA219	devINA219.c	/^writeSensorRegisterINA219(uint8_t deviceRegister, uint8_t payload[], uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterL3GD20H	devL3GD20H.c	/^writeSensorRegisterL3GD20H(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterMAG3110	devMAG3110.c	/^writeSensorRegisterMAG3110(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f
+writeSensorRegisterMMA8451Q	devMMA8451Q.c	/^writeSensorRegisterMMA8451Q(uint8_t deviceRegister, uint8_t payload, uint16_t menuI2cPullupValue)$/;"	f

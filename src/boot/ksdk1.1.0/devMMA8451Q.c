@@ -137,6 +137,31 @@ configureSensorMMA8451Q(uint8_t payloadF_SETUP, uint8_t payloadCTRL_REG1, uint16
 	return (i2cWriteStatus1 | i2cWriteStatus2);
 }
 
+
+WarpStatus
+configureSensorMMA8451QDropDetect(uint16_t menuI2cPullupValue)
+{
+	configureSensorMMA8451Q(0x00, 0x00, menuI2cPullupValue);
+	/* Run AFTER running  configureSensorMMA8451Q*/
+
+	WarpStatus	i2cWriteStatus1, i2cWriteStatus2, i2cWriteStatus3;
+
+	i2cWriteStatus1 = writeSensorRegisterMMA8451Q(0x15 /* FF_MT_CFG register address*/,
+							0xB8 /* payload: Event latch enabled, freefall detect on all axes  */,
+							menuI2cPullupValue);
+
+	i2cWriteStatus2 = writeSensorRegisterMMA8451Q(0x17 /* register address FF_MT_THS */,
+							0x04 /* payload 0.25g */,
+							menuI2cPullupValue);
+
+	i2cWriteStatus3 = writeSensorRegisterMMA8451Q(0x18 /* register address Debounce count register address*/,
+							0x01 /* payload */,
+							menuI2cPullupValue);
+
+	configureSensorMMA8451Q(0x00, 0x01 /* set active */, menuI2cPullupValue);
+	return (i2cWriteStatus1 | i2cWriteStatus2 | i2cWriteStatus3);
+}
+
 WarpStatus
 readSensorRegisterMMA8451Q(uint8_t deviceRegister, int numberOfBytes)
 {
