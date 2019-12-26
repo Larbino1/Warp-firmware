@@ -2570,36 +2570,34 @@ main(void)
 			}
 			case '1':
 			{
-				WarpStatus status;
-				WarpI2CDeviceState *i2cDeviceState;
-				i2cDeviceState = &deviceMMA8451QState;
-				uint8_t regValue;
-				while(1)
-				{
-					status = readSensorRegisterMMA8451Q(0x16 /* register address */, 1 /* number of bytes */);
-					if (status == kWarpStatusOK)
-					{
-						regValue = i2cDeviceState->i2cBuffer[0];
-						if ((regValue>>7)&0x01)
-						{
-							SEGGER_RTT_WriteString(0, "Dropped!!! \n\r");
-						}
-						/*
-						for(int i = 0; i<8; i++)
-						{
-							SEGGER_RTT_printf(0, "%d", (regValue >> 7-i)&0x01);
-						}
-						SEGGER_RTT_WriteString(0, "endl   \n\r\t   startl");
-						*/
-					}
-				}
+#ifdef WARP_BUILD_ENABLE_DEVSG90
+				// Initialise servo position
+				setSG90Position(15U);
+#endif
+				// Clear event latch by reading register
+				checkMMA8451QDropDetectEventLatch();		
 
+				while(!checkMMA8451QDropDetectEventLatch()){
+					OSA_TimeDelay(500); // Wait as all monitoring is done on accelerometer
+				}
+				SEGGER_RTT_WriteString(0, "Dropped!!! \n\r");
+#ifdef WARP_BUILD_ENABLE_DEVSG90
+				// Deploy parachute
+				setSG90Position(5U);
+#endif
+				// reset after deploy
+				OSA_TimeDelay(3000);
+#ifdef WARP_BUILD_ENABLE_DEVSG90
+				setSG90Position(15U);
+#endif
 				break;
 			}
 			case '2':
 			{
 				printTpmPwmParams((tpm_pwm_param_t *) &SG90_PwmParam);
 				SEGGER_RTT_WriteString(0, "\r\n\n Reading TPM registers");
+				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
 				for (uint8_t i=1; i < 2; i++)
 				{
 					uint32_t x = g_tpmBaseAddr[i];
@@ -2608,6 +2606,7 @@ main(void)
 					SEGGER_RTT_printf(0, "\r\n\tTPM%d_CNT ", i);
 					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_CNT_RD(x));
 					SEGGER_RTT_printf(0, "\r\n\tTPM%d_MOD ", i);
+					OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_MOD_RD(x));
 					SEGGER_RTT_printf(0, "\r\n\tTPM%d_CONF ", i);
 					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_CONF_RD(x));

@@ -69,18 +69,12 @@ void TPM_HAL_DisableChn(uint32_t baseAddr, uint8_t channel)
 /*see fsl_tpm_hal.h for documentation of this function*/
 void TPM_HAL_Reset(uint32_t baseAddr, uint32_t instance)
 {
-    SEGGER_RTT_WriteString(0, "\r\nTPM_HAL_Reset\r\n");
     uint8_t chan = FSL_FEATURE_TPM_CHANNEL_COUNTn(instance);
     int i;
 
 
-    SEGGER_RTT_WriteString(0, "\r\nreading SC register\r\n");
-    SEGGER_RTT_printf(0, "\r\n %04x \r\n", baseAddr);
-    SEGGER_RTT_printf(0, "\r\n %04x \r\n", HW_TPM_SC_RD(baseAddr));
     HW_TPM_SC_WR(baseAddr, 0);
-    SEGGER_RTT_WriteString(0, "\r\nset SC\r\n");
     TPM_HAL_SetMod(baseAddr, 0xffff);
-    SEGGER_RTT_WriteString(0, "\r\nset MOD\r\n");
 
     /*instance 1 and 2 only has two channels,0 and 1*/
     for(i = 0; i < chan; i++)
@@ -90,9 +84,7 @@ void TPM_HAL_Reset(uint32_t baseAddr, uint32_t instance)
     }
 
     HW_TPM_STATUS_WR(baseAddr, BM_TPM_STATUS_CH0F | BM_TPM_STATUS_CH1F | BM_TPM_STATUS_TOF);
-    SEGGER_RTT_WriteString(0, "\r\nset Status\r\n");
     HW_TPM_CONF_WR(baseAddr, 0);
-    SEGGER_RTT_WriteString(0, "\r\nset CONF\r\n");
 }
 
 

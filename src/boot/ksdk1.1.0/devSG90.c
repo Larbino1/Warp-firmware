@@ -39,6 +39,9 @@ void initSG90()
 void setSG90Position(uint32_t dutycycle)
 {
 	SG90_PwmParam.uDutyCyclePercent = dutycycle;
+	while (!TPM_DRV_PwmStart(tpm_instance, (tpm_pwm_param_t *)&SG90_PwmParam, tpm_channel)){
+		SEGGER_RTT_printf(0, "PWM FAILED TPM%dCH%d\n", tpm_instance, tpm_channel);
+	}
 }
 
 void readSG90Registers()
