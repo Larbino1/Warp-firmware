@@ -12,7 +12,7 @@ volatile tpm_pwm_param_t SG90_PwmParam =
 
 void initSG90()
 {
-	SEGGER_RTT_WriteString(0, "\r\nInitialising SG90\n");
+	SEGGER_RTT_WriteString(0, "\r\nInitialising SG90");
 	PORT_HAL_SetMuxMode(PORTB_BASE, 13u, kPortMuxAlt2);
 
 	tpm_general_config_t cfg = {
@@ -25,15 +25,20 @@ void initSG90()
 	};
 
 
-	SEGGER_RTT_WriteString(0, "\r\nInitialising TPM\n");
+	SEGGER_RTT_WriteString(0, "\r\n\tInitialising TPM\n");
 	TPM_DRV_Init(tpm_instance, &cfg);
-	SEGGER_RTT_WriteString(0, "\r\nSetting Clock\n");
+	SEGGER_RTT_WriteString(0, "\r\n\tSetting Clock");
 	TPM_DRV_SetClock(tpm_instance, kTpmClockSourceModuleMCGIRCLK, kTpmDividedBy4);
-	SEGGER_RTT_WriteString(0, "\r\nStarting PWM\n");
+	SEGGER_RTT_WriteString(0, "\r\n\tStarting PWM");
 	
 	bool pwminitsuccess = TPM_DRV_PwmStart(tpm_instance, (tpm_pwm_param_t *) &SG90_PwmParam, tpm_channel);
 
-	SEGGER_RTT_printf(0, "pwm init success  %d \r\n", pwminitsuccess);
+	SEGGER_RTT_printf(0, "\r\n\tPWM init success?  %d \r\n", pwminitsuccess);
+}
+
+void DeinitSG90()
+{
+	TPM_DRV_Deinit(tpm_instance);
 }
 
 void setSG90Position(uint32_t dutycycle)

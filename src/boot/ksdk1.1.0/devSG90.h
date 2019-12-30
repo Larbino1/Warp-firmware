@@ -11,6 +11,8 @@ uint8_t tpm_channel = 1U;
 
 void initSG90();
 
+void DeinitSG90();
+
 void setSG90Position(uint32_t dutycycle);
 
 void readSG90Registers();

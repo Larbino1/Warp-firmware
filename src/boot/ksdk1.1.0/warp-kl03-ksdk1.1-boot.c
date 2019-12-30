@@ -83,8 +83,11 @@
 #else
 #	include "devMMA8451Q.h"
 #	include "devSG90.h"
+#	include "dropDetect.h"
 //#	include "PWMdriver.h"
 #endif
+
+
 
 #define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
 //#define WARP_BUILD_BOOT_TO_CSVSTREAM
@@ -1377,7 +1380,6 @@ main(void)
 #ifdef WARP_BUILD_ENABLE_DEVSG90
 	initSG90();
 	extern tpm_pwm_param_t SG90_PwmParam;
-	SEGGER_RTT_WriteString(0, "\r\n done init\n");
 #endif
 
 	while (1)
@@ -2658,6 +2660,19 @@ main(void)
 
 				break;
 			}
+			case '4':
+			{
+				ddmain();
+				break;
+			}
+			case '5':
+			{
+			//	warpLowPowerSecondsSleep(10, true);
+ 				warpSetLowPowerMode(kWarpPowerModeVLLS0, 5);
+			}
+
+
+
 			/*
 			 *	Ignore naked returns.
 			 */

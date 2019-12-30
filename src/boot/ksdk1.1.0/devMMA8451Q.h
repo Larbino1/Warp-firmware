@@ -47,6 +47,8 @@ WarpStatus	writeSensorRegisterMMA8451Q(uint8_t deviceRegister,
 WarpStatus	configureSensorMMA8451Q(uint8_t payloadF_SETUP, uint8_t payloadCTRL_REG1, uint16_t menuI2cPullupValue);
 WarpStatus      configureSensorMMA8451QDropDetect(uint16_t menuI2cPullupValue);
 WarpStatus      configureSensorMMA8451QTransientDetect(uint16_t menuI2cPullupValue);
+WarpStatus	MMA8451QTransientInterruptEnable(uint16_t menuI2cPullupValue, bool enableInterrupt);
+void		checkMMA8451QInterruptStatus();
 WarpStatus	readSensorSignalMMA8451Q(WarpTypeMask signal,
 					WarpSignalPrecision precision,
 					WarpSignalAccuracy accuracy,
@@ -54,3 +56,4 @@ WarpStatus	readSensorSignalMMA8451Q(WarpTypeMask signal,
 					WarpSignalNoise noise);
 void		printSensorDataMMA8451Q(bool hexModeFlag);
 bool 		checkMMA8451QDropDetectEventLatch();
+bool 		checkMMA8451QTransientDetectEventLatch();

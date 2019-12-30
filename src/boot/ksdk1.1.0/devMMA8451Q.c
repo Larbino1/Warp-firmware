@@ -115,6 +115,7 @@ writeSensorRegisterMMA8451Q(uint8_t deviceRegister, uint8_t payload, uint16_t me
 							gWarpI2cTimeoutMilliseconds);
 	if (status != kStatus_I2C_Success)
 	{
+		SEGGER_RTT_printf(0, "\r\n\t writeSensorRegisterMMA8451Q failed, code %d", status);
 		return kWarpStatusDeviceCommunicationFailed;
 	}
 
@@ -134,6 +135,10 @@ configureSensorMMA8451Q(uint8_t payloadF_SETUP, uint8_t payloadCTRL_REG1, uint16
 							payloadCTRL_REG1 /* payload */,
 							menuI2cPullupValue);
 
+	if (i2cWriteStatus1 | i2cWriteStatus2)
+	{
+		SEGGER_RTT_printf(0, "\r\n\t configureSensorMMA8451Q failed, codes %d, %d", i2cWriteStatus1, i2cWriteStatus2);
+	}
 	return (i2cWriteStatus1 | i2cWriteStatus2);
 }
 
@@ -182,7 +187,8 @@ checkMMA8451QTransientDetectEventLatch()
 	WarpStatus status = readSensorRegisterMMA8451Q(0x1E /* SRC register address */, 1 /* number of bytes */);
 	if (status == kWarpStatusOK){
 		uint8_t regValue = deviceMMA8451QState.i2cBuffer[0];
-		return (bool) ((regValue>>7) & 0x01);
+		SEGGER_RTT_printf(0, "\r\n regValue %02x \n", regValue);
+		return (bool) ((regValue>>6) & 0x01);
 	}
 	else{
 		SEGGER_RTT_WriteString(0, "Read Transient detect register Failed");
@@ -190,11 +196,26 @@ checkMMA8451QTransientDetectEventLatch()
 	}
 }
 
+void
+checkMMA8451QInterruptStatus()
+{	
+	WarpStatus status = readSensorRegisterMMA8451Q(0x0c /* INT_SOURCE register */, 1 /* number of bytes */);
+	if (status == kWarpStatusOK){
+		uint8_t regValue = deviceMMA8451QState.i2cBuffer[0];
+		SEGGER_RTT_printf(0, "\r\n Interrupt source register %02x \n", regValue);
+	}
+	else{
+		SEGGER_RTT_WriteString(0, "Read Interrupt Source register Failed");
+	}
+}
+
 WarpStatus
 configureSensorMMA8451QTransientDetect(uint16_t menuI2cPullupValue)
 {
 	configureSensorMMA8451Q(0x00, 0x00, menuI2cPullupValue);
-	/* Run AFTER running  configureSensorMMA8451Q*/
+	/* Run AFTER running
+	 * configureSensorMMA8451Q(0x00, 0x00, menuI2cPullupValue);
+	 */
 
 	WarpStatus	i2cWriteStatus1, i2cWriteStatus2, i2cWriteStatus3;
 
@@ -203,16 +224,45 @@ configureSensorMMA8451QTransientDetect(uint16_t menuI2cPullupValue)
 							menuI2cPullupValue);
 
 	i2cWriteStatus2 = writeSensorRegisterMMA8451Q(0x1F /* register address TRANSIENT_THS */,
-							0x0A /* payload 1g */,
+							0x05 /* payload 0.375g */,
 							menuI2cPullupValue);
 
 	i2cWriteStatus3 = writeSensorRegisterMMA8451Q(0x20 /* Debounce count register address*/,
-							0x10 /* payload */,
+							0x04 /* payload */,
 							menuI2cPullupValue);
 
 	configureSensorMMA8451Q(0x00, 0x01 /* set active */, menuI2cPullupValue);
 	return (i2cWriteStatus1 | i2cWriteStatus2 | i2cWriteStatus3);
 }
+
+WarpStatus
+MMA8451QTransientInterruptEnable(uint16_t menuI2cPullupValue, bool enableInterrupt)
+{
+	configureSensorMMA8451Q(0x00, 0x00 /* set inactive */, menuI2cPullupValue);
+
+	WarpStatus	i2cWriteStatus1, i2cWriteStatus2, i2cWriteStatus3;
+
+
+	i2cWriteStatus1 = writeSensorRegisterMMA8451Q(0x2C /* CTRL_REG3 register address*/,
+							0x20, // Active high interrupts
+							menuI2cPullupValue);
+
+	uint8_t payload = enableInterrupt? 0x20: 0x00;
+	i2cWriteStatus2 = writeSensorRegisterMMA8451Q(0x2D /* CTRL_REG4 register address*/,
+							payload,
+							menuI2cPullupValue);
+
+	i2cWriteStatus3 = writeSensorRegisterMMA8451Q(0x2E /* CTRL_REG5 aim at INT2 pin */,
+							0x00 /* aim all at INT2 pin */,
+							menuI2cPullupValue);
+
+	PORT_HAL_SetMuxMode(PORTA_BASE, 12, kPortMuxAsGpio); // Set to PTA12, i.e. Alt 1
+
+	configureSensorMMA8451Q(0x00, 0x01 /* set active */, menuI2cPullupValue);
+	return (i2cWriteStatus1 | i2cWriteStatus2 | i2cWriteStatus3 );
+}
+
+
 WarpStatus
 readSensorRegisterMMA8451Q(uint8_t deviceRegister, int numberOfBytes)
 {
