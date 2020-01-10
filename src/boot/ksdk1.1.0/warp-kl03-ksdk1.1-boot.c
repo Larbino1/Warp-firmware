@@ -50,6 +50,7 @@
 #include "fsl_mcglite_hal.h"
 #include "fsl_port_hal.h"
 #include "fsl_lpuart_driver.h"
+#include "fsl_pmc_hal.h"
 
 #include "gpio_pins.h"
 #include "SEGGER_RTT.h"
@@ -1382,6 +1383,14 @@ main(void)
 	extern tpm_pwm_param_t SG90_PwmParam;
 #endif
 
+	// Detect if we are returning from VLLS, and if so return to dropDetect loop
+	if(detectWakeFromLlwuP4())
+	{
+		disableSssupply();
+		ddmain();
+	}
+
+
 	while (1)
 	{
 		/*
@@ -2662,16 +2671,37 @@ main(void)
 			}
 			case '4':
 			{
+				disableSssupply();
 				ddmain();
 				break;
 			}
 			case '5':
 			{
-			//	warpLowPowerSecondsSleep(10, true);
- 				warpSetLowPowerMode(kWarpPowerModeVLLS0, 5);
+				enableI2Cpins(menuI2cPullupValue);
+				WarpStatus status; 
+				status = configureSensorMMA8451QDropDetect(1800);
+				if (status !=kWarpStatusOK) {SEGGER_RTT_WriteString(0, "\r\n\tconfigureSensorMMA8541QDropDetect failed");}
+				status = configureSensorMMA8451QTransientDetect(1800);
+				if (status !=kWarpStatusOK) {SEGGER_RTT_WriteString(0, "\r\n\tconfigureSensorMMA8541QTransientDetect failed");}
+
+
+				if (MMA8451QTransientInterruptEnable(menuI2cPullupValue, true /* enable Interrupt */)){
+					SEGGER_RTT_WriteString(0, "Enable interupt failed");
+				}
+				else{
+					SEGGER_RTT_WriteString(0, "Enabled interrupt");
+				}
+				checkMMA8451QInterruptStatus();
+				break;
 			}
-
-
+			case '6':
+			{
+				ddStartCMP();
+				checkMMA8451QInterruptStatus();
+				checkMMA8451QTransientDetectEventLatch(); // Clear latch
+				checkMMA8451QInterruptStatus();
+				break;
+			}
 
 			/*
 			 *	Ignore naked returns.

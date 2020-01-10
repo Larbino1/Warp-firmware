@@ -345,3 +345,13 @@ warpSetLowPowerMode(WarpPowerMode powerMode, uint32_t sleepSeconds)
 
 	return kWarpStatusOK;
 }
+
+bool detectWakeFromLlwuP4()
+{
+	if (BR_LLWU_F1_WUF4(LLWU_BASE))
+	{
+		BW_LLWU_F1_WUF4(LLWU_BASE, 1);  // Write 1 to clear
+		return true;
+	}
+	return false;
+}

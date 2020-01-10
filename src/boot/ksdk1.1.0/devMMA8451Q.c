@@ -224,11 +224,11 @@ configureSensorMMA8451QTransientDetect(uint16_t menuI2cPullupValue)
 							menuI2cPullupValue);
 
 	i2cWriteStatus2 = writeSensorRegisterMMA8451Q(0x1F /* register address TRANSIENT_THS */,
-							0x05 /* payload 0.375g */,
+							0x04 /* payload 0.25g */,
 							menuI2cPullupValue);
 
 	i2cWriteStatus3 = writeSensorRegisterMMA8451Q(0x20 /* Debounce count register address*/,
-							0x04 /* payload */,
+							0x00 /* payload */,
 							menuI2cPullupValue);
 
 	configureSensorMMA8451Q(0x00, 0x01 /* set active */, menuI2cPullupValue);
@@ -244,7 +244,7 @@ MMA8451QTransientInterruptEnable(uint16_t menuI2cPullupValue, bool enableInterru
 
 
 	i2cWriteStatus1 = writeSensorRegisterMMA8451Q(0x2C /* CTRL_REG3 register address*/,
-							0x20, // Active high interrupts
+							0x20, // Transient can wake from sleep, Active low interrupts, pushpull
 							menuI2cPullupValue);
 
 	uint8_t payload = enableInterrupt? 0x20: 0x00;
