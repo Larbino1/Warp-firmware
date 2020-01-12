@@ -15,7 +15,6 @@
 	cp ../../src/boot/ksdk1.1.0/warp-kl03-ksdk1.1-powermodes.c	work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/warp.h				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devSSD1331.*			work/demos/Warp/src/
-	cp ../../src/boot/ksdk1.1.0/PWMdriver.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devSG90.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devBMX055.*				work/demos/Warp/src/
 	cp ../../src/boot/ksdk1.1.0/devADXL362.*			work/demos/Warp/src/

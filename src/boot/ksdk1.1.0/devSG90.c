@@ -7,13 +7,12 @@ volatile tpm_pwm_param_t SG90_PwmParam =
 	.mode = kTpmEdgeAlignedPWM,
 	.edgeMode = kTpmHighTrue,
 	.uFrequencyHZ = 50,
-	.uDutyCyclePercent = 10,
+	.uDutyCyclePercent = 15,
 };
 
 void initSG90()
 {
 	SEGGER_RTT_WriteString(0, "\r\nInitialising SG90");
-	PORT_HAL_SetMuxMode(PORTB_BASE, 13u, kPortMuxAlt2);
 
 	tpm_general_config_t cfg = {
 		false /*isDBGMode*/, 
@@ -34,6 +33,7 @@ void initSG90()
 	bool pwminitsuccess = TPM_DRV_PwmStart(tpm_instance, (tpm_pwm_param_t *) &SG90_PwmParam, tpm_channel);
 
 	SEGGER_RTT_printf(0, "\r\n\tPWM init success?  %d \r\n", pwminitsuccess);
+	PORT_HAL_SetMuxMode(PORTB_BASE, 13u, kPortMuxAlt2);
 }
 
 void DeinitSG90()

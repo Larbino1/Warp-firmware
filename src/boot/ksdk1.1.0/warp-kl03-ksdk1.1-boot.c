@@ -85,13 +85,16 @@
 #	include "devMMA8451Q.h"
 #	include "devSG90.h"
 #	include "dropDetect.h"
-//#	include "PWMdriver.h"
 #endif
 
+// If enabled, automatically enter drop detect mode on wake
+#define DROP_DETECT_PRODUCTION_MODE
 
+#ifndef DROP_DETECT_PRODUCTION_MODE
+	#define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
+#endif
 
-#define WARP_BUILD_ENABLE_SEGGER_RTT_PRINTF
-//#define WARP_BUILD_BOOT_TO_CSVSTREAM
+// #define WARP_BUILD_BOOT_TO_CSVSTREAM
 
 
 /*
@@ -1383,8 +1386,15 @@ main(void)
 	extern tpm_pwm_param_t SG90_PwmParam;
 #endif
 
-	// Detect if we are returning from VLLS, and if so return to dropDetect loop
-	if(detectWakeFromLlwuP4())
+	// Checks if either
+	// 	- we are returning from VLLS 
+	// 	- we are in DROP_DETECT_PRODUCTION_MODE
+	// and if so, enters drop detect mode
+	if(detectWakeFromLlwuP4()
+		#ifdef DROP_DETECT_PRODUCTION_MODE
+		| true
+		#endif
+	)
 	{
 		disableSssupply();
 		ddmain();
@@ -1496,6 +1506,12 @@ main(void)
 #endif
 
 		SEGGER_RTT_WriteString(0, "\r- 'z': dump all sensors data.\n");
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
+		SEGGER_RTT_WriteString(0, "\r- '1': Enter drop detect mode.\n");
+		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
+
+		SEGGER_RTT_WriteString(0, "\r- '2': Set SG90 servo position.\n");
 		OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
 
 		SEGGER_RTT_WriteString(0, "\rEnter selection> ");
@@ -2581,128 +2597,21 @@ main(void)
 			}
 			case '1':
 			{
-#ifdef WARP_BUILD_ENABLE_DEVSG90
-				// Initialise servo position
-				setSG90Position(15U);
-#endif
-				// Clear event latch by reading register
-				checkMMA8451QDropDetectEventLatch();		
-
-				while(!checkMMA8451QDropDetectEventLatch()){
-					OSA_TimeDelay(500); // Wait as all monitoring is done on accelerometer
-				}
-				SEGGER_RTT_WriteString(0, "Dropped!!! \n\r");
-#ifdef WARP_BUILD_ENABLE_DEVSG90
-				// Deploy parachute
-				setSG90Position(5U);
-#endif
-				// reset after deploy
-				OSA_TimeDelay(3000);
-#ifdef WARP_BUILD_ENABLE_DEVSG90
-				setSG90Position(15U);
-#endif
+				disableSssupply();
+				ddmain();
 				break;
-			}
+			}		
 			case '2':
 			{
-				printTpmPwmParams((tpm_pwm_param_t *) &SG90_PwmParam);
-				SEGGER_RTT_WriteString(0, "\r\n\n Reading TPM registers");
-				OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-
-				for (uint8_t i=1; i < 2; i++)
-				{
-					uint32_t x = g_tpmBaseAddr[i];
-					SEGGER_RTT_printf(0, "\r\n\tTPM%d_CNT ADDRESS", i);
-					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_CNT_ADDR(x));
-					SEGGER_RTT_printf(0, "\r\n\tTPM%d_CNT ", i);
-					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_CNT_RD(x));
-					SEGGER_RTT_printf(0, "\r\n\tTPM%d_MOD ", i);
-					OSA_TimeDelay(gWarpMenuPrintDelayMilliseconds);
-					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_MOD_RD(x));
-					SEGGER_RTT_printf(0, "\r\n\tTPM%d_CONF ", i);
-					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_CONF_RD(x));
-					SEGGER_RTT_printf(0, "\r\n\tTPM%d_SC ", i);
-					SEGGER_RTT_printf(0, "'%08x'", HW_TPM_SC_RD(x));
-					for (uint8_t ii=0; ii < 2; ii++)
-					{
-						SEGGER_RTT_printf(0, "\r\n\tTPM%d_C%dV ", i, ii);
-						SEGGER_RTT_printf(0, "'%08x'", HW_TPM_CnV_RD(x, ii));
-						SEGGER_RTT_printf(0, "\r\n\tTPM%d_C%dSC ", i, ii);
-						SEGGER_RTT_printf(0, "'%08x'", HW_TPM_CnSC_RD(x, ii));
-					}
-				}
-				break;
-			}
-			case '3':
-			{
-#ifdef WARP_BUILD_ENABLE_PWMdriver 
-				enablePWMpins();
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVSG90
 				initSG90();
 				SEGGER_RTT_WriteString(0, "\r\nEnter servo duty cycle. \r\n0x");
 				uint32_t dutycycle = (uint32_t) read4digits();
 			 	setSG90Position(dutycycle);	
-#endif
-
-#ifdef WARP_BUILD_ENABLE_PWMdriver 
-				for (uint8_t i=0; i < 2; i++)
-				{
-					for (uint8_t ii=0; ii < 2; ii++)
-					{
-						if (!TPM_DRV_PwmStart(i, (tpm_pwm_param_t *)&pwmSettings[ii], ii)){
-							SEGGER_RTT_printf(0, "PWM FAILED TPM%d CH%d\n", i, ii);
-						}
-
-					}
-				}
-#endif
-#ifdef WARP_BUILD_ENABLE_DEVSG90
 				if (!TPM_DRV_PwmStart(tpm_instance, (tpm_pwm_param_t *)&SG90_PwmParam, tpm_channel)){
 					SEGGER_RTT_printf(0, "PWM FAILED TPM%dCH%d\n", tpm_instance, tpm_channel);
 				}
-#endif
-				
-#ifdef WARP_BUILD_ENABLE_PWMdriver 
-				SEGGER_RTT_printf(0, "LPTMR Return: %d\n", LPTMR_DRV_Start(0));
-#endif
-
 				break;
 			}
-			case '4':
-			{
-				disableSssupply();
-				ddmain();
-				break;
-			}
-			case '5':
-			{
-				enableI2Cpins(menuI2cPullupValue);
-				WarpStatus status; 
-				status = configureSensorMMA8451QDropDetect(1800);
-				if (status !=kWarpStatusOK) {SEGGER_RTT_WriteString(0, "\r\n\tconfigureSensorMMA8541QDropDetect failed");}
-				status = configureSensorMMA8451QTransientDetect(1800);
-				if (status !=kWarpStatusOK) {SEGGER_RTT_WriteString(0, "\r\n\tconfigureSensorMMA8541QTransientDetect failed");}
-
-
-				if (MMA8451QTransientInterruptEnable(menuI2cPullupValue, true /* enable Interrupt */)){
-					SEGGER_RTT_WriteString(0, "Enable interupt failed");
-				}
-				else{
-					SEGGER_RTT_WriteString(0, "Enabled interrupt");
-				}
-				checkMMA8451QInterruptStatus();
-				break;
-			}
-			case '6':
-			{
-				ddStartCMP();
-				checkMMA8451QInterruptStatus();
-				checkMMA8451QTransientDetectEventLatch(); // Clear latch
-				checkMMA8451QInterruptStatus();
-				break;
-			}
-
 			/*
 			 *	Ignore naked returns.
 			 */
